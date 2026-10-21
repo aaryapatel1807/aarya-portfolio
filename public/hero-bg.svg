@@ -1,0 +1,66 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sky gradient -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#312e81;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4c1d95;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#fef08a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fef08a;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#skyGradient)"/>
+  
+  <!-- Stars -->
+  <circle cx="200" cy="100" r="2" fill="white" opacity="0.8"/>
+  <circle cx="400" cy="150" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="600" cy="80" r="2" fill="white" opacity="0.9"/>
+  <circle cx="800" cy="120" r="1" fill="white" opacity="0.7"/>
+  <circle cx="1000" cy="90" r="1.5" fill="white" opacity="0.8"/>
+  <circle cx="1200" cy="140" r="2" fill="white" opacity="0.9"/>
+  <circle cx="1400" cy="110" r="1" fill="white" opacity="0.6"/>
+  <circle cx="1600" cy="130" r="1.5" fill="white" opacity="0.8"/>
+  <circle cx="1800" cy="95" r="2" fill="white" opacity="0.7"/>
+  <circle cx="300" cy="200" r="1" fill="white" opacity="0.9"/>
+  <circle cx="700" cy="180" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="1100" cy="190" r="1" fill="white" opacity="0.8"/>
+  <circle cx="1500" cy="210" r="2" fill="white" opacity="0.7"/>
+  
+  <!-- Moon -->
+  <circle cx="1600" cy="200" r="60" fill="url(#moonGlow)"/>
+  <circle cx="1600" cy="200" r="50" fill="#fef3c7"/>
+  
+  <!-- Mountains - Background -->
+  <path d="M 0 700 L 300 400 L 600 550 L 900 350 L 1200 500 L 1500 300 L 1800 450 L 1920 400 L 1920 1080 L 0 1080 Z" 
+        fill="#1e293b" opacity="0.4"/>
+  
+  <!-- Mountains - Mid -->
+  <path d="M 0 800 L 200 550 L 450 650 L 700 450 L 1000 600 L 1300 400 L 1600 550 L 1920 500 L 1920 1080 L 0 1080 Z" 
+        fill="#334155" opacity="0.6"/>
+  
+  <!-- Mountains - Foreground -->
+  <path d="M 0 900 L 150 700 L 400 800 L 650 650 L 900 750 L 1200 600 L 1500 700 L 1750 650 L 1920 700 L 1920 1080 L 0 1080 Z" 
+        fill="#475569" opacity="0.8"/>
+  
+  <!-- Lake reflection -->
+  <ellipse cx="960" cy="950" rx="900" ry="80" fill="#1e293b" opacity="0.3"/>
+  
+  <!-- Trees/Buildings silhouettes -->
+  <!-- Left tree -->
+  <polygon points="100,900 120,750 140,900" fill="#0f172a" opacity="0.9"/>
+  <rect x="115" y="900" width="10" height="50" fill="#0f172a" opacity="0.9"/>
+  
+  <!-- Right buildings -->
+  <rect x="1700" y="800" width="60" height="150" fill="#1e293b" opacity="0.7"/>
+  <rect x="1770" y="820" width="50" height="130" fill="#1e293b" opacity="0.6"/>
+  <rect x="1720" y="780" width="20" height="20" fill="#fef08a" opacity="0.4"/>
+  <rect x="1750" y="810" width="15" height="15" fill="#fef08a" opacity="0.3"/>
+  
+  <!-- Foreground elements -->
+  <circle cx="200" cy="1000" r="80" fill="#0f172a" opacity="0.8"/>
+  <circle cx="250" cy="1020" r="60" fill="#0f172a" opacity="0.7"/>
+</svg>
