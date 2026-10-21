@@ -1,19 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { Draggable } from "gsap/Draggable";
-
-gsap.registerPlugin(Draggable);
+import { useEffect, useRef } from "react";// === jameschugh.com Reverse-Engineered Draggable Elements ===
+// Sticky notes and collage interaction (from About + Personal sections)
 
 const notes = [
   { text: "these notes move ;)", color: "bg-yellow-200" },
-  { text: "Built with React & Next.js", color: "bg-pink-200" },
-  { text: "GSAP makes it smooth", color: "bg-blue-200" },
-  { text: "Drag me anywhere!", color: "bg-green-200" },
+  { text: "Your first note here", color: "bg-pink-200" },
+  { text: "Another note to move", color: "bg-blue-200" },
+  { text: "Move things around ;)", color: "bg-green-200" },
 ];
 
-export default function DraggableNotes() {
+export default function DraggableNotes({ lenis }: { lenis: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,24 +18,22 @@ export default function DraggableNotes() {
 
     const draggables = Draggable.create(".draggable-note", {
       type: "x,y",
-      bounds: window,
+      bounds: document.querySelector('.notes-container') || window,
       inertia: true,
       onDragStart: function() {
         gsap.to(this.target, {
           scale: 1.1,
-          rotate: 5,
+          zIndex: 100,
           boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
           duration: 0.2,
-          zIndex: 100,
         });
       },
       onDragEnd: function() {
         gsap.to(this.target, {
           scale: 1,
-          rotate: 0,
+          zIndex: 10,
           boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
           duration: 0.3,
-          zIndex: 10,
         });
       },
     });
@@ -49,15 +44,15 @@ export default function DraggableNotes() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full">
+    <div ref={containerRef} className="relative w-full notes-container">
       {notes.map((note, index) => (
         <div
           key={index}
-          className={`draggable-note absolute ${note.color} dark:opacity-90 p-4 rounded-lg shadow-lg cursor-grab active:cursor-grabbing transform rotate-${index * 2} select-none`}
+          className={`draggable-note absolute ${note.color} dark:opacity-90 p-4 rounded-lg shadow-lg cursor-grab active:cursor-grabbing select-none`}
           style={{
-            left: `${20 + index * 15}%`,
-            top: `${10 + index * 8}px`,
-            width: "180px",
+            left: `${30 + index * 25}%`,
+            top: `${20 + index * 15}px`,
+            width: "200px",
             zIndex: 10,
           }}
         >

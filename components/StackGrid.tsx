@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { gsap, ScrollTrigger } from "@/lib/scroll";
+import gsap from "gsap";
+import { ScrollTrigger } from "@/lib/scroll";
 
 const tools = [
   { name: "React", description: "Building dynamic user interfaces", icon: "⚛️" },

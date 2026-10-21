@@ -1,14 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { gsap, ScrollTrigger } from "@/lib/scroll";
+import { ScrollTrigger } from "@/lib/scroll";
+import gsap from "gsap";
 
 const projects = [
-  { name: "Elysia", position: { top: "32%", left: "12%" }, year: "2024" },
-  { name: "NutriAI", position: { top: "42%", left: "35%" }, year: "2024" },
-  { name: "LearnFlow", position: { top: "38%", left: "58%" }, year: "2024" },
-  { name: "PathForge", position: { top: "45%", right: "18%" }, year: "2024" },
-  { name: "Local Finder", position: { top: "50%", left: "50%" }, year: "2024" },
+  { name: "Elysia", position: { top: "38%", left: "12%" }, year: "2024" },
+  { name: "NutriAI", position: { top: "48%", left: "35%" }, year: "2024" },
+  { name: "LearnFlow", position: { top: "44%", left: "58%" }, year: "2024" },
+  { name: "PathForge", position: { top: "52%", right: "18%" }, year: "2024" },
+  { name: "Local Finder", position: { top: "58%", left: "50%" }, year: "2024" },
 ];
 
 export default function Hero() {
@@ -21,26 +22,26 @@ export default function Hero() {
   useEffect(() => {
     if (!heroRef.current || !sceneRef.current) return;
 
-    // Hero 3D Fly-In Animation
+    // Hero 3D Fly-In Animation (jameschugh.com reverse-engineered)
     const ctx = gsap.context(() => {
       gsap.fromTo(
         sceneRef.current,
         {
-          scale: 0.85,
-          z: -200,
-          opacity: 0.6,
+          scale: 0.7,           // Start 70% size (TEST: 0.6 - 0.9)
+          z: -300,              // 300px away in 3D space (TEST: -200 to -500)
+          opacity: 0.5,       // Slightly faded (TEST: 0.3 - 0.8)
         },
         {
-          scale: 1,
-          z: 0,
-          opacity: 1,
-          ease: "power2.out",
+          scale: 1,           // Full size
+          z: 0,               // At viewer
+          opacity: 1,         // Fully visible
+          ease: "power2.out", // Smooth deceleration (TEST: power3, expo)
           scrollTrigger: {
             trigger: heroRef.current,
             start: "top top",
-            end: "bottom 60%",
-            scrub: 1,
-          },
+            end: "bottom 60%", // ~40% of hero scroll (TEST: adjust by feel)
+            scrub: 1,         // 1 second smooth scrub
+          }
         }
       );
 
