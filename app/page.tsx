@@ -1,15 +1,25 @@
 "use client";
 
 import { useEffect } from "react";
+import { initSmoothScroll } from "@/lib/scroll";
+import Hero from "@/components/Hero";
+import TimelineJourney from "@/components/TimelineJourney";
+import BottomNav from "@/components/BottomNav";
+import KeyboardShortcuts from "@/components/KeyboardShortcuts";
+import ThemeToggle from "@/components/ThemeToggle";
+import ProjectDeck from "@/components/ProjectDeck";
+import StackGrid from "@/components/StackGrid";
+import DraggableNotes from "@/components/DraggableNotes";
+import NotesWall from "@/components/NotesWall";
+import VisitorCounter from "@/components/VisitorCounter";
 
 export default function Home() {
   useEffect(() => {
     // Initialize smooth scroll on mount
-    // lenis initialization is handled per-component with useScrollSetup
-    const { lenis } = import("@/lib/scroll");
+    const lenis = initSmoothScroll();
 
     return () => {
-      lenis?.then((m) => m.default?.destroy?.());
+      lenis?.destroy();
     };
   }, []);
 
