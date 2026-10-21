@@ -1,7 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";// === jameschugh.com Reverse-Engineered Draggable Elements ===
-// Sticky notes and collage interaction (from About + Personal sections)
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { Draggable } from "gsap/Draggable";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(Draggable);
+}
 
 const notes = [
   { text: "these notes move ;)", color: "bg-yellow-200" },
