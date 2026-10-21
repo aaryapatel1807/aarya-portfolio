@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased" style={{ overflow: 'clip' }}>
+      <body className="antialiased overflow-clip">
         {children}
       </body>
     </html>
