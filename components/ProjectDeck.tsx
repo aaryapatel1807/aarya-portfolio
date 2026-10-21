@@ -72,7 +72,6 @@ export default function ProjectDeck() {
         const stopIndex = Math.min(Math.floor(progress * projects.length), projects.length - 1);
         setActiveStop(stopIndex);
       },
-      onCleanup: () => setActiveStop(0),
     });
   }, []);
 
@@ -132,7 +131,7 @@ export default function ProjectDeck() {
           <div
             key={project.name}
             className={`project-card rounded-3xl shadow-2xl cursor-pointer overflow-hidden border-4 border-white/30 hover:border-white/50 transition-all duration-300 transform hover:scale-[1.05] relative group`}
-            style={{ transitionTransform: `scale(${index <= activeStop ? 1 : 0.9})` }}
+            style={{ transform: `scale(${index <= activeStop ? 1 : 0.9})` }}
           >
             {/* Card front */}
             <div

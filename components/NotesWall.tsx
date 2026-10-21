@@ -109,7 +109,7 @@ export default function NotesWall() {
         </div>
       )}
 
-      <form className="notes-form max-w-md mx-auto space-y-4" onsubmit={handleSubmit}>
+      <form className="notes-form max-w-md mx-auto space-y-4" onSubmit={handleSubmit}>
         <div>
           <input
             type="text"

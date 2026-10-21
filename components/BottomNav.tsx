@@ -12,7 +12,7 @@ const navItems = [
   { id: "contact", label: "Contact" },
 ];
 
-export default function BottomNav({ lenis }: { lenis: any }) {
+export default function BottomNav() {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
@@ -39,45 +39,10 @@ export default function BottomNav({ lenis }: { lenis: any }) {
     return () => observer.disconnect();
   }, []);
 
-  // Listen to Lenis scroll for nav updates
-  useEffect(() => {
-    if (!lenis) return;
-    const updateNav = () => {
-      // Get current scroll position via Lenis
-      const scrollY = lenis.instance?.scroll || 0;
-      let current = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (scrollY >= sectionTop - 200) {
-          current = section.id;
-        }
-      });
-      
-      setActiveSection(current);
-    };
-    
-    lenis.on('scroll', updateNav);
-    // Initial update
-    updateNav();
-    
-    return () => {
-      lenis.off('scroll', updateNav);
-    };
-  }, [lenis]);
-
   const handleClick = (id: string) => {
     const target = document.getElementById(id);
     if (target) {
-      // Smooth scroll using Lenis
-      if (lenis && typeof lenis.scrollTo === 'function') {
-        lenis.scrollTo(target, { duration: 1.2 });
-      } else {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }
+      scrollTo(target, { duration: 1.2 });
     }
   };
 

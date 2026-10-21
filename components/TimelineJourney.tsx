@@ -56,6 +56,7 @@ const timelineStops: TimelineStop[] = [
 
 export default function TimelineJourney() {
   const sectionRef = useRef<HTMLElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const [currentStop, setCurrentStop] = useState(0);
@@ -160,11 +161,12 @@ export default function TimelineJourney() {
 
           <div className="relative h-[500px]">
             <svg
-              ref={pathRef}
+              ref={svgRef}
               viewBox="0 0 300 500"
               className="w-full h-full"
             >
               <path
+                ref={pathRef}
                 d="M 50 50 Q 150 150, 250 250 T 50 450"
                 fill="none"
                 stroke="white"

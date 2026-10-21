@@ -1,15 +1,28 @@
 "use client";
 
 import { useEffect } from "react";
-import { gsap, ScrollTrigger, lenis } from "@/lib/scroll";
 
-export default function KeyboardShortcuts({ lenis }: { lenis: any }) {
+export default function KeyboardShortcuts() {
   useEffect(() => {
+    // G L M I R mapping (GitHub, LinkedIn, Mail, Instagram, Resume)
+    const shortcuts: Record<string, () => void> = {
+      g: () => window.open("https://github.com/aaryapatel1807", "_blank"),
+      l: () => window.open("https://linkedin.com/in/aarya-patel", "_blank"),
+      m: () => (window.location.href = "mailto:aarya@example.com"),
+      i: () => window.open("https://instagram.com/aarya", "_blank"),
+      r: () => {
+        const link = document.createElement("a");
+        link.href = "/resume.pdf";
+        link.download = "Aarya-Resume.pdf";
+        link.click();
+      },
+    };
+
     const handleKeyPress = (e: KeyboardEvent) => {
       // Ignore if typing in input/textarea
       if (
         e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextareaElement
+        e.target instanceof HTMLTextAreaElement
       ) {
         return;
       }
@@ -28,18 +41,5 @@ export default function KeyboardShortcuts({ lenis }: { lenis: any }) {
     };
   }, []);
 
-  // G L M I R mapping (GitHub, LinkedIn, Mail, Instagram, Resume)
-  const shortcuts: Record<string, () => void> = {
-    g: () => window.open("https://github.com/your-username", "_blank"),
-    l: () => window.open("https://linkedin.com/in/your-username", "_blank"),
-    m: () => (window.location.href = "mailto:your-email@example.com"),
-    i: () => window.open("https://instagram.com/your-username", "_blank"),
-    r: () => {
-      const link = document.createElement("a");
-      link.href = "/resume.pdf";
-      link.download = "Aarya-Resume.pdf";
-      link.click();
-    },
-  };
-
   return null; // This component has no UI, just keyboard listeners
+}

@@ -10,7 +10,7 @@ const notes = [
   { text: "Move things around ;)", color: "bg-green-200" },
 ];
 
-export default function DraggableNotes({ lenis }: { lenis: any }) {
+export default function DraggableNotes() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

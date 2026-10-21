@@ -15,13 +15,6 @@ export function initSmoothScroll() {
 
   lenis = new Lenis({
     duration: 1.2,
-    easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smooth: true,
-    direction: "vertical",
-    gestureDirection: "vertical",
-    smoothWheel: true,
-    smoothTouch: false,
-    touchMultiplier: 2,
   });
 
   // Connect Lenis to GSAP ScrollTrigger
